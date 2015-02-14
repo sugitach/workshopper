@@ -22,7 +22,7 @@ function printText (appName, appDir, filetype, contents) {
 
   // proper path resolution
   contents = contents.replace(/\{rootdir:([^}]+)\}/gi, function (match, subpath) {
-    return 'file://' + path.join(appDir, subpath)
+    return 'file://' + encodeURI(path.join(appDir, subpath))
   })
 
   if (filetype == 'md') {
